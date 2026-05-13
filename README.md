@@ -1,5 +1,7 @@
 # Repocop
 
+![Repocop](robocop.png)
+
 Repocop is a small research audit runner for checking papers, repositories, and execution plans.
 
 ## Usage
@@ -7,5 +9,3 @@ Repocop is a small research audit runner for checking papers, repositories, and 
 ```bash
 repocop --help
 ```
-
-The project image is stored at `robocop.png`.
