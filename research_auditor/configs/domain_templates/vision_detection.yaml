@@ -1,0 +1,55 @@
+domain:
+  id: vision_detection
+  label: "Object Detection / Instance Segmentation"
+  aliases:
+    - object detection
+    - yolo
+    - faster rcnn
+    - detr
+    - mAP
+    - AP50
+    - COCO detection
+    - bounding box
+    - instance segmentation
+
+common_metrics:
+  - mAP
+  - AP50
+  - AP75
+  - AP_small
+  - AP_medium
+  - AP_large
+  - FPS
+  - latency_ms
+
+common_artifacts:
+  - dataset_annotations
+  - pretrained_backbone
+  - model_checkpoint
+  - eval_script
+  - config
+
+red_flags:
+  - COCO minival vs test-dev mismatch
+  - multi-scale testing not disclosed
+  - test-time augmentation (TTA) not disclosed
+  - image resolution differs from paper
+  - different NMS threshold
+  - different confidence threshold
+  - FPS measured on different hardware
+  - pretrained backbone version mismatch
+
+standard_datasets:
+  - COCO 2017
+  - Pascal VOC
+  - LVIS
+  - Objects365
+
+evidence_pack:
+  quantitative:
+    - AP_table_full
+    - per_category_breakdown
+    - speed_accuracy_tradeoff
+  qualitative:
+    - detection_overlay_grid
+    - failure_cases

@@ -1,0 +1,36 @@
+domain:
+  id: generic_ml
+  label: "Generic ML / Deep Learning"
+
+common_metrics:
+  - accuracy
+  - F1
+  - precision
+  - recall
+  - AUC-ROC
+  - loss
+
+common_artifacts:
+  - dataset
+  - checkpoint
+  - config
+  - eval_script
+  - metric_script
+
+red_flags:
+  - validation set used as final test set
+  - no train/test split specification
+  - no statistical significance test
+  - epoch/step count not reported
+  - single-seed evaluation only
+  - subset evaluation without disclosure
+  - precomputed predictions used
+
+evidence_pack:
+  quantitative:
+    - metric_table
+    - per_class_breakdown
+    - seed_variance
+  qualitative:
+    - sample_predictions
+    - confusion_matrix

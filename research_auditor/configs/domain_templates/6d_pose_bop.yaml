@@ -1,0 +1,57 @@
+domain:
+  id: 6d_pose_bop
+  label: "6D Object Pose Estimation (BOP)"
+  aliases:
+    - 6d pose
+    - pose estimation
+    - bop
+    - 6dof
+    - object pose
+    - VSD
+    - MSSD
+    - MSPD
+    - ADD-S
+    - bop toolkit
+
+common_metrics:
+  - AR         # Average Recall over VSD/MSSD/MSPD
+  - VSD        # Visible Surface Discrepancy
+  - MSSD       # Maximum Symmetry-Aware Surface Distance
+  - MSPD       # Maximum Symmetry-Aware Projection Distance
+  - ADD
+  - ADD-S
+  - AUC-ADD-S
+
+common_artifacts:
+  - object_3d_models
+  - camera_intrinsics
+  - scene_gt_annotations
+  - predictions_csv_or_json
+  - bop_toolkit
+
+red_flags:
+  - coordinate frame mismatch (OpenCV vs OpenGL)
+  - object scale or unit mismatch (mm vs m)
+  - symmetry handling not reported
+  - ICP/pose-refinement used but not disclosed
+  - subset of BOP objects only
+  - precomputed predictions submitted without runtime eval
+  - non-standard depth sensor model
+  - missing depth image evaluation
+
+eval_toolkit: bop_toolkit
+standard_datasets:
+  - LM-O
+  - T-LESS
+  - YCB-V
+  - ITODD
+  - HB
+  - TUD-L
+
+evidence_pack:
+  quantitative:
+    - per_object_AR_table
+    - VSD_MSSD_MSPD_breakdown
+  qualitative:
+    - pose_overlay_grid
+    - failure_cases

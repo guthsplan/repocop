@@ -1,0 +1,57 @@
+domain:
+  id: nerf_3dgs
+  label: "NeRF / 3D Gaussian Splatting / Novel View Synthesis"
+  aliases:
+    - nerf
+    - neural radiance
+    - 3dgs
+    - gaussian splatting
+    - novel view synthesis
+    - radiance field
+    - nerfstudio
+    - instant-ngp
+    - psnr
+    - ssim
+    - lpips
+
+common_metrics:
+  - PSNR
+  - SSIM
+  - LPIPS
+  - FPS
+  - train_time_minutes
+  - GPU_memory_GB
+  - storage_MB
+
+common_artifacts:
+  - scene_dataset
+  - trained_model_or_splat
+  - render_script
+  - eval_script
+
+red_flags:
+  - image resolution mismatch (e.g. full vs half resolution)
+  - train/test split differs from standard
+  - white_background flag inconsistency
+  - masked vs unmasked evaluation
+  - only best views shown qualitatively
+  - runtime excludes preprocessing or SfM
+  - COLMAP version mismatch
+  - different downscaling method (area vs bilinear)
+  - evaluation on subset of scenes only
+
+standard_datasets:
+  - NeRF Synthetic (Blender)
+  - Tanks and Temples
+  - Mip-NeRF 360
+  - Deep Blending
+  - LLFF
+
+evidence_pack:
+  quantitative:
+    - per_scene_psnr_ssim_lpips_table
+    - avg_fps_and_memory
+  qualitative:
+    - novel_view_grid_random
+    - novel_view_grid_worst
+    - depth_maps

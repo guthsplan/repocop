@@ -1,0 +1,52 @@
+domain:
+  id: llm_eval
+  label: "LLM / Text Generation Evaluation"
+  aliases:
+    - language model
+    - llm
+    - text generation
+    - perplexity
+    - BLEU
+    - ROUGE
+    - lm-eval
+    - helm
+    - opencompass
+
+common_metrics:
+  - exact_match
+  - accuracy
+  - BLEU
+  - ROUGE-L
+  - perplexity
+  - pass@k
+  - win_rate
+  - judge_score
+
+common_artifacts:
+  - model_weights_or_api_key
+  - eval_harness_config
+  - prompt_template
+  - test_split
+
+red_flags:
+  - prompt template mismatch with paper
+  - decoding parameter mismatch (temp, top_p, greedy)
+  - test set contamination
+  - judge model version mismatch
+  - few-shot examples differ from paper
+  - evaluation dataset version mismatch
+
+eval_harnesses:
+  - lm-evaluation-harness
+  - HELM
+  - OpenCompass
+  - LightEval
+  - HuggingFace Evaluate
+
+evidence_pack:
+  quantitative:
+    - benchmark_score_table
+    - per_task_breakdown
+  qualitative:
+    - sample_outputs
+    - failure_cases
